@@ -5,12 +5,13 @@ import Home from "./component/Home";
 import Create from "./component/Create";
 import Update from "./component/Update";
 import Pnf from "./component/Pnf";
+import { ToastContainer } from "react-toastify";
 
 function App(props) {
   return(
     <BrowserRouter>
-       <Menu/>
-
+        <Menu/>
+        <ToastContainer theme={"colored"} position={'top-right'}/>
         <Routes>
           <Route path={`/`} element={<Home/>}/>
           <Route path={`/create`} element={<Create/>}/>

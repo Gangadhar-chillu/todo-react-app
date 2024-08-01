@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// bootstrap library
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle"
 
+// bootstrap-icons css
 import "bootstrap-icons/font/bootstrap-icons.css"
+
+// react-tostify css file
+import "react-toastify/dist/ReactToastify.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,4 +1,6 @@
 import React ,{ useState} from 'react'
+import { toast } from 'react-toastify'
+import { createContact } from '../db/store'
 
 // to read values from the form inputs in react forms
 // mutable -> useRef() hook
@@ -12,6 +14,25 @@ function Create(props) {
   const[fimage, setFImage] = useState('')
   const[faddress, setFAddress] = useState('')
 
+  const getRandom = () => {
+    return Math.round(Math.random() * 10000)
+  }
+
+  const submitHandler = async (e) => {
+    e.preventDefault() // to avoid page refresh
+    let data = {
+      id : getRandom(),
+      name : fname,
+      email : femail,
+      mobile : fmobile,
+      image : fimage,
+      address : faddress
+    }
+    console.log('new contact =', data)
+    // toast.success('Successfully Submitted');
+    createContact(data);
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -24,7 +45,7 @@ function Create(props) {
         <div className="col-md-6 offset-md-3">
           <div className="card">
             <div className="card-body">
-              <form autoComplete='off'>
+              <form autoComplete='off' onSubmit={submitHandler}>
                 <div className="form-group mt-2">
                   <label htmlFor="name">Name</label>
                   <input type="text" name="name" id="name" value={fname} onChange={(e) => setFName(e.target.value)} className='form-control' required/>
