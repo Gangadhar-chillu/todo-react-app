@@ -1,6 +1,6 @@
 import React ,{ useState} from 'react'
 import { toast } from 'react-toastify'
-import { createContact } from '../db/store'
+import { createContact } from '../db/store' // typed/named import
 
 // to read values from the form inputs in react forms
 // mutable -> useRef() hook
@@ -15,7 +15,7 @@ function Create(props) {
   const[faddress, setFAddress] = useState('')
 
   const getRandom = () => {
-    return Math.round(Math.random() * 10000)
+    return Math.round(Math.random() * 10000) // random id
   }
 
   const submitHandler = async (e) => {
